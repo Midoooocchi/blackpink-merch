@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student List</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2><b> Student List </b></h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <button class="btn btn-success" data-toggle="modal" id="new_student"><span>New</span></button>
+                        <button class="btn btn-success" id="clear_data"><span>Clear</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <table id="studentList" class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Lastname</th>
+                        <th>Firstname</th>
+                        <th>Course</th>
+                        <th>Average</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="newStudentModal" class="modal">
+            <div class="modal-dialog">
+                <form id="new_studentForm">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title"><b> New Student </b></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="col-12"></div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>ID</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="id" />
+                            </div>
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Lastname</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="ln" />
+                            </div>
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Firstname</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="fn" />
+                            </div>
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Course</label>
+                            </div>
+                            <div class="col-4">
+                                <select id="course" class="form-control">
+                            <option></option>
+                            <option>BS Computer Science</option>
+                            <option>BS Data Science</option>
+                            <option>BS Information Systems</option>
+                            <option>BS Information Technology</option> 
+                        </select>
+                            </div>
+                            <div class="col-12">
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Subject 1</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="s1" />
+                            </div>
+
+                            <div class="col-2">
+                                <label>Grade</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control" id="g1" />
+                            </div>
+
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Subject 2</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="s2" />
+                            </div>
+
+                            <div class="col-2">
+                                <label>Grade</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control" id="g2" />
+                            </div>
+
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Subject 3</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="s3" />
+                            </div>
+
+                            <div class="col-2">
+                                <label>Grade</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control" id="g3" />
+                            </div>
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Subject 4</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="s4" />
+                            </div>
+
+                            <div class="col-2">
+                                <label>Grade</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control" id="g4" />
+                            </div>
+                            <div class="col"></div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <label>Subject 5</label>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="s5" />
+                            </div>
+
+                            <div class="col-2">
+                                <label>Grade</label>
+                            </div>
+                            <div class="col-3">
+                                <input type="text" class="form-control" id="g5" />
+                            </div>
+
+                        </div>
+                        <br>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-success" id="close"><span>Close</span></button>
+                            <button class="btn btn-success" id="save"><span>Save Changes</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <div id="detailsModal" class="modal">
+            <div class="modal-dialog">
+                <form id="student_details">
+                    <div class="modal2-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b> Student Details </b></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <br>
+
+                        <div id="detailsHere"></div>
+                        <div id="detailsHere">
+                            <div class="col-13">
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <table id="subj_grades" style="border: 0; width: 50%;">
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+
+                        <div class="modal-footer">
+                            <button class="btn btn-success" id="close2">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        var studentList = [];
+        var newStudentModal = document.getElementById("newStudentModal");
+        var btn = document.getElementById("new_student");
+        var span = document.getElementsByClassName("close")[0];
+        var numofSubj = 0;
+        var sum = 0;
+        var total = 0;
+        var s_ave = 0;
+        var clickID = "";
+        var clickID = "";
+
+        btn.onclick = function() {
+            newStudentModal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            newStudentModal.style.display = "none";
+            document.getElementById("new_studentForm").reset();
+        }
+
+        window.onclick = function(event) {
+            if (event.target == newStudentModal) {
+                newStudentModal.style.display = "none";
+            }
+        }
+
+
+        $('.modal-footer', '#close').click(function() {
+            $("#new_studentForm").modal('hide');
+        });
+
+
+        $(document).ready(function() {
+            if (localStorage.getItem('studentList')) {
+                studentList = JSON.parse(localStorage.getItem('studentList'));
+                loadTable();
+            }
+
+            $('#save').click(function() {
+                const s_id = $("#id").val().trim();
+                const s_ln = $("#ln").val().trim();
+                const s_fn = $("#fn").val().trim();
+
+                const s_c = $("#course").val().trim();
+                const s_1 = $("#s1").val().trim();
+                const s_2 = $("#s2").val().trim();
+                const s_3 = $("#s3").val().trim();
+                const s_4 = $("#s4").val().trim();
+                const s_5 = $("#s5").val().trim();
+                var s_moreSubjects = [s_2, s_3, s_4, s_5];
+
+                const g_1 = $("#g1").val().trim();
+                const g_2 = $("#g2").val().trim();
+                const g_3 = $("#g3").val().trim();
+                const g_4 = $("#g4").val().trim();
+                const g_5 = $("#g5").val().trim();
+                var s_moreGrades = [g_2, g_3, g_4, g_5];
+
+
+                if (s_id == "" || s_ln == "" || s_fn == "" || s_c == "" || s_1 == "" || g_1 == "" || JSON.parse(g_1) < 60 || JSON.parse(g_1) > 100) {
+                    alert("ERROR! STUDENT RECORD NOT SAVED. \nPlease provide all the student details and at least one subject with its corresponding numerical grade ranging from 60-100. Otherwise, it would not save your record. :)");
+                    return;
+                }
+
+                for (var i = 0; i < s_moreGrades.length; i++) {
+                    if (s_moreGrades[i] == "" || s_moreGrades[i] == null || s_moreGrades[i] < 60 || s_moreGrades[i] > 100 || s_moreSubjects[i] == "") {
+                        s_moreGrades[i] = JSON.parse("0");
+                    } else {
+                        numofSubj++;
+                        s_moreGrades[i] = JSON.parse(s_moreGrades[i]);
+                    }
+                    sum = sum + s_moreGrades[i];
+                }
+
+                total = sum + JSON.parse(g_1);
+                s_ave = total / (numofSubj + 1);
+
+                const student = {
+                    id: s_id,
+                    lastname: s_ln,
+                    firstname: s_fn,
+                    course: s_c,
+                    subj: [s_1, s_2, s_3, s_4, s_5],
+                    grades: [g_1, g_2, g_3, g_4, g_5],
+                    average: parseFloat(s_ave).toFixed(2)
+                };
+
+                studentList.push(student);
+                addRow(student);
+                document.getElementById("new_studentForm").reset();
+                localStorage.setItem('studentList', JSON.stringify(studentList));
+                newStudentModal.style.display = "none";
+            });
+
+            $("#close").click(function() {
+                newStudentModal.style.display = "none";
+                document.getElementById("new_studentForm").reset();
+            });
+
+            $("#clear_data").click(function() {
+                studentList = [];
+                localStorage.setItem('studentList', JSON.stringify(studentList));
+                $('#studentList tbody').empty();
+            });
+        });
+
+        function loadTable() {
+
+            for (student_details of studentList) {
+                addRow(student_details);
+            }
+        }
+
+        function addRow(student) {
+
+            let row = document.createElement("tr");
+            let cell = document.createElement("td");
+            let link = document.createElement("td");
+            var s_details = document.getElementById("detailsModal");
+
+            link.innerHTML = student.id;
+            link.setAttribute("class", "link");
+
+            row.appendChild(link);
+
+            link.onclick = function() {
+                clickID = student.id;
+
+                s_details.style.display = "block";
+                loaddetailsModal();
+            }
+
+            cell = document.createElement("td");
+            cell.innerHTML = student.lastname;
+            row.append(cell);
+            cell = document.createElement("td");
+            cell.innerHTML = student.firstname;
+            row.append(cell);
+            cell = document.createElement("td");
+            cell.innerHTML = student.course;
+            row.append(cell);
+            cell = document.createElement("td");
+            cell.innerHTML = student.average;
+            row.append(cell);
+            $("#studentList tbody").append(row);
+        }
+
+        function loaddetailsModal() {
+
+            for (student of studentList) {
+                if (student.id == clickID) {
+                    studentDetails(student);
+                } else {
+                    continue;
+                }
+            }
+        }
+
+        function studentDetails(student) {
+
+            let name = document.createElement("h5");
+            let s_info = document.createElement("p");
+            let row = document.createElement("tr");
+            let cell = document.createElement("td");
+
+            name.innerHTML = "<b>" + student.firstname + " " + student.lastname + "</b";
+
+            $("#detailsHere").append(name);
+            s_info.innerHTML = student.id + "<br />" + student.course;
+            $("#detailsHere").append(s_info);
+
+
+            for (var i = 0; i < student.grades.length; i++) {
+
+                if (student.grades[i] == "" || student.subj[i] == "" || JSON.parse(student.grades[i]) < 60 || JSON.parse(student.grades[i]) > 100) {
+                    continue;
+                }
+
+                row = document.createElement("tr");
+                cell = document.createElement("td");
+                cell = document.createElement("td");
+                cell.innerHTML = student.subj[i];
+                row.append(cell);
+                cell = document.createElement("td");
+                cell.innerHTML = student.grades[i];
+                row.append(cell);
+                $("#subj_grades").append(row);
+            }
+
+            row = document.createElement("tr");
+            cell = document.createElement("td");
+            cell = document.createElement("td");
+            cell.innerHTML = "<b>" + "Average: " + "</b>";
+            row.append(cell);
+            cell = document.createElement("td");
+            cell.innerHTML = "<b>" + student.average + "</b>";
+            row.append(cell);
+            $("#subj_grades").append(row);
+        }
+    </script>
+
+</body>
+
+</html>
